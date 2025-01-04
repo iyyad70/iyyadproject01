@@ -1,0 +1,419 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hobby</title>
+
+        <link rel="stylesheet" href="style.css">
+
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f9;
+                color: #333;
+                background-attachment: fixed;
+            }
+               .music-player {
+               background: #dad0d065;
+               padding: 24px;
+              border-radius: 12px;
+              box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+              width: 100%;
+              max-width: 400px;
+              }
+              
+              .song-info {
+                display: flex;
+                align-items: center;
+                margin-bottom: 24px;
+              }
+              
+              .song-info img {
+                width: 64px;
+                height: 64px;
+                border-radius: 8px;
+                object-fit: cover;
+                margin-right: 16px;
+              }
+              
+              .text {
+                color: white;
+              }
+              
+              .text h3 {
+                margin: 0 0 4px 0;
+                font-size: 16px;
+              }
+              
+              .text p {
+                margin: 0;
+                font-size: 14px;
+                color: #040000;
+              }
+              
+              .progress-container {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                color: #b3b3b3;
+                font-size: 12px;
+                margin-bottom: 20px;
+              }
+              
+              .progress-bar {
+                flex: 1;
+                height: 4px;
+                background: #404040;
+                border-radius: 2px;
+                cursor: pointer;
+                position: relative;
+              }
+              
+              .progress {
+                background: #1db954;
+                height: 100%;
+                border-radius: 2px;
+                width: 0%;
+                transition: width 0.1s linear;
+              }
+              
+              .progress-bar:hover .progress {
+                background: #1ed760;
+              }
+              
+              .controls {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 16px;
+              }
+              
+              .control-button {
+                background: none;
+                border: none;
+                color: #000000;
+                cursor: pointer;
+                padding: 8px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s;
+              }
+              
+              .control-button:hover {
+                color: white;
+                background: #404040;
+              }
+              
+              .play-button {
+                background: #1db954;
+                color: black;
+                padding: 16px;
+              }
+              
+              .play-button:hover {
+                background: #1ed760;
+                transform: scale(1.05);
+                color: black;
+              }
+              
+              .play-button.playing svg {
+                display: none;
+              }
+              
+              .play-button.playing::before {
+                content: "";
+                display: block;
+                width: 16px;
+                height: 16px;
+                background: currentColor;
+                clip-path: polygon(0 0, 45% 0, 45% 100%, 0 100%, 55% 0, 100% 0, 100% 100%, 55% 100%);
+              }
+            header {
+                background-color: #073500;
+                color: white;
+                padding: 0rem 0;
+                text-align: center;
+            }
+            main {
+                padding: 3rem;
+                text-align: left;
+            }
+            footer {
+                background-color: #073500;
+                color: white;
+                text-align: center;
+                padding: 0rem 0;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+            
+        </style>
+    </head>
+
+    <style>
+        body
+        {
+          background-image: url(image/forest\ 2.jpg);
+        }
+    </style>
+
+    <body>
+
+    <nav>
+            <img src="image/logo_1-removebg-preview.png" height="2%" width="4%">
+            <ul>
+                <li><a href="index.html" target="_self">Home</a></li>
+                <li> <a href="aboutme.html" target="_self">About Me</a></li>
+                <li><a href="experience.html"target="_self">Experience</a></li>
+                <li><a href="hobby.html"target="_self">Hobby</a></li>
+                <li><a href="gallery.html"target="_self">Gallery</a></li>
+                </ul>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hero">
+            <h1><font color="white">My Hobbies</font></h1>
+        </div>
+
+      <center>
+        <section class="hobby-section">
+          <h2><font color="red">Favorite Song</font></h2>
+          <div class="hobby-content">
+
+        <body>
+          <div class="music-player">
+            <div class="song-info">
+              <img id="cover" src="image/partynextdoor.jpg" alt="Album cover" />
+              <div class="text">
+                <h3 id="title">Belong to the City</h3>
+                <p id="artist">PARTYNEXTDOOR</p>
+              </div>
+            </div>
+      
+            <div class="progress-container">
+              <span id="current-time">0:00</span>
+              <div class="progress-bar">
+                <div class="progress"></div>
+              </div>
+              <span id="duration">0:00</span>
+            </div>
+      
+            <div class="controls">
+              <button id="prev" class="control-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                  <line x1="5" y1="19" x2="5" y2="5"></line>
+                </svg>
+              </button>
+              <button id="play" class="control-button play-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </button>
+              <button id="next" class="control-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                  <line x1="19" y1="5" x2="19" y2="19"></line>
+                </svg>
+              </button>
+            </div>
+      
+            <audio id="audio"></audio>
+          </div>
+          <script src="player.js"></script>
+        </body>
+      </html>
+      <p><font color="white">Click right or left button to choose different song</font></p>
+      </center>
+
+        <section class="hobby-section">
+            <h2><font color="red">Hiking</font></h2>
+            <div class="hobby-content">
+                <p><font color="white">Hiking is a fulfilling and adventurous hobby that I enjoys, as it allows me to explore the beauty of nature while staying active and healthy. For me, hiking is a way to disconnect from the daily stresses and immerse himself in scenic landscapes, whether it's through lush forests, mountain trails, or coastal paths. With each hike, I feels a sense of accomplishment as he reaches new summits or completes challenging trails. It's a chance to reflect, relax, and enjoy the peaceful surroundings.</font></p>
+                <div class="image-gallery">
+                    <img src="image/hiking 1.jpg" alt="Hiking 1">
+                    <img src="image/hiking 2.jpg" alt="Hiking 2">
+                    <img src="image/hiking 3.jpg" alt="Hiking 3">
+                    <img src="image/hiking 4.jpg" alt="Hiking 4">
+                    <img src="image/hiking 5.jpg" alt="Hiking 5">
+                    <img src="image/hiking 6.jpg" alt="Hiking 6">
+                    <img src="image/hiking 7.jpg" alt="Hiking 7">
+                    <img src="image/hiking 8.jpg" alt="Hiking 8">
+                </div>
+            </div>
+        </section>
+
+        <section class="hobby-section">
+            <h2><font color="red">Aquascaping</font></h2>
+            <div class="hobby-content">
+                <p><font color="white">Aquascaping is a creative and relaxing hobby that I enjoys, where we designs and arranges plants, rocks, and other natural elements within an aquarium to create beautiful underwater landscapes. For me, it's a way to express his artistic side while maintaining a harmonious ecosystem. Aquascaping requires careful planning, from choosing the right plants and decorations to ensuring the water quality and lighting are perfect for the aquatic life.</font></p>
+                <div class="image-gallery aquascape-gallery">
+                    <img src="image/aquascape 1.jpg" alt="Aquascape 1">
+                    <img src="image/aquascape 2.jpg" alt="Aquascape 2">
+                    <img src="image/aquascape 3.jpg" alt="Aquascape 3">
+                </div>
+
+                <br>
+
+                <center>
+                    <video controls src="video/aquascape video.mp4" height="500" width="300"></video>
+                <iframe width="660" height="415" src="https://www.youtube.com/embed/eGCKbWhOlX8?si=WwGp9krXH3tBUfoY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </center>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 All rights reserved. Design by Fudhail Iyyad</p>
+    </footer>
+
+    <script>
+      const songs = [
+  {
+    title: 'Belong to the City',
+    artist: 'PARTYNEXTDOOR',
+    cover: 'image/partynextdoor.jpg',
+    audioSrc: 'audio/belong-to-the-city.mp3'
+  },
+  {
+    title: 'Reminisensi',
+    artist: 'Insomniacks',
+    cover: 'image/insomniakcs.jpg',
+    audioSrc: 'audio/insomniacks-reminisensi.mp3'
+  },
+  {
+    title: 'Eventually',
+    artist: 'Tame Impala',
+    cover: 'image/tame impala.jpg',
+    audioSrc: 'audio/tame-impala-eventually.mp3'
+  }
+];
+
+class MusicPlayer {
+  constructor() {
+    this.currentSongIndex = 0;
+    this.isPlaying = false;
+
+    // DOM Elements
+    this.audio = document.getElementById('audio');
+    this.playBtn = document.getElementById('play');
+    this.prevBtn = document.getElementById('prev');
+    this.nextBtn = document.getElementById('next');
+    this.progress = document.querySelector('.progress');
+    this.progressBar = document.querySelector('.progress-bar');
+    this.currentTimeEl = document.getElementById('current-time');
+    this.durationEl = document.getElementById('duration');
+    this.titleEl = document.getElementById('title');
+    this.artistEl = document.getElementById('artist');
+    this.coverEl = document.getElementById('cover');
+
+    this.initializeEventListeners();
+    this.loadSong(songs[this.currentSongIndex]);
+  }
+
+  initializeEventListeners() {
+    // Playback controls
+    this.playBtn.addEventListener('click', () => this.togglePlay());
+    this.prevBtn.addEventListener('click', () => this.prevSong());
+    this.nextBtn.addEventListener('click', () => this.nextSong());
+
+    // Audio events
+    this.audio.addEventListener('timeupdate', () => this.updateProgress());
+    this.audio.addEventListener('loadedmetadata', () => this.updateDuration());
+    this.audio.addEventListener('ended', () => this.nextSong());
+
+    // Progress bar
+    this.progressBar.addEventListener('click', (e) => this.setProgress(e));
+  }
+
+  loadSong(song) {
+    this.titleEl.textContent = song.title;
+    this.artistEl.textContent = song.artist;
+    this.coverEl.src = song.cover;
+    this.audio.src = song.audioSrc;
+  }
+
+  togglePlay() {
+    if (this.isPlaying) {
+      this.pause();
+    } else {
+      this.play();
+    }
+  }
+
+  play() {
+    this.isPlaying = true;
+    this.playBtn.classList.add('playing');
+    this.audio.play();
+  }
+
+  pause() {
+    this.isPlaying = false;
+    this.playBtn.classList.remove('playing');
+    this.audio.pause();
+  }
+
+  prevSong() {
+    this.currentSongIndex--;
+    if (this.currentSongIndex < 0) {
+      this.currentSongIndex = songs.length - 1;
+    }
+    this.loadSong(songs[this.currentSongIndex]);
+    if (this.isPlaying) {
+      this.play();
+    }
+  }
+
+  nextSong() {
+    this.currentSongIndex++;
+    if (this.currentSongIndex >= songs.length) {
+      this.currentSongIndex = 0;
+    }
+    this.loadSong(songs[this.currentSongIndex]);
+    if (this.isPlaying) {
+      this.play();
+    }
+  }
+
+  updateProgress() {
+    const { currentTime, duration } = this.audio;
+    const progressPercent = (currentTime / duration) * 100;
+    this.progress.style.width = `${progressPercent}%`;
+    this.currentTimeEl.textContent = this.formatTime(currentTime);
+  }
+
+  updateDuration() {
+    this.durationEl.textContent = this.formatTime(this.audio.duration);
+  }
+
+  setProgress(e) {
+    const width = this.progressBar.clientWidth;
+    const clickX = e.offsetX;
+    const duration = this.audio.duration;
+    this.audio.currentTime = (clickX / width) * duration;
+  }
+
+  formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }
+}
+
+// Initialize player when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  new MusicPlayer();
+});
+    </script>
+
+</body>
+</html>
